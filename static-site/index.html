@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DevQuest — RPG Developer Portfolio</title>
+  <meta name="description" content="Level 5 Full Stack Developer. Explore quests, skills, achievements, and contact the Town Elder." />
+  <meta property="og:title" content="DevQuest — RPG Developer Portfolio" />
+  <meta property="og:description" content="Level 5 Full Stack Developer. Explore quests, skills, achievements." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%94%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Exo+2:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- HUD NAV -->
+  <nav class="hud-nav" id="hud-nav">
+    <div class="hud-inner">
+      <div class="hud-brand">
+        <span class="brand-sword">⚔</span>
+        <span class="brand-title">DEVQUEST</span>
+      </div>
+      <div class="hud-links" id="hud-links"></div>
+      <div class="hud-meta">
+        <span>HP <span class="c-primary">100/100</span></span>
+        <span>MP <span class="c-secondary">85/100</span></span>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO / PROFILE -->
+    <section id="profile" class="hero scanlines">
+      <div class="game-card glow-blue flicker brackets hero-card">
+        <div class="text-center mb-6">
+          <div class="ascii-frame">══════════════════════════════════════</div>
+          <div class="hero-title">⚔  CHARACTER PROFILE  ⚔</div>
+          <div class="ascii-frame">══════════════════════════════════════</div>
+        </div>
+        <dl class="profile-list">
+          <div class="row"><dt>Name</dt><dd>: <span class="cursor-blink">Aarav Kumar</span></dd></div>
+          <div class="row"><dt>Class</dt><dd>: <span class="c-primary">Full Stack Developer</span></dd></div>
+          <div class="row"><dt>Level</dt><dd>: <span class="c-gold">5</span></dd></div>
+          <div class="row"><dt>Guild</dt><dd>: Computer Science Student</dd></div>
+          <div class="row"><dt>Origin</dt><dd>: Coimbatore, India</dd></div>
+        </dl>
+        <div class="ascii-frame mb-3">══════════════════════════════════════</div>
+        <div class="xp-label"><span>XP</span><span class="c-gold">750 / 1000</span></div>
+        <div class="xp-track mb-6"><div class="xp-fill" id="hero-xp" style="width:0%"></div></div>
+        <div class="ascii-frame mb-6">══════════════════════════════════════</div>
+        <div class="hero-actions">
+          <a href="#quests" class="btn-game">[ View Quests ]</a>
+          <a href="#contact" class="btn-game">[ Contact NPC ]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats" class="section">
+      <div class="text-center mb-12"><h2 class="section-title">📊 Character Stats</h2></div>
+      <div class="stats-grid" data-observe="stats">
+        <div class="game-card p-6">
+          <h3 class="panel-heading">SOFT SKILLS</h3>
+          <div id="soft-skills" class="stack"></div>
+        </div>
+        <div class="game-card p-6">
+          <h3 class="panel-heading">TECHNICAL SKILLS</h3>
+          <div id="tech-skills" class="tech-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUESTS -->
+    <section id="quests" class="section">
+      <div class="text-center mb-12"><h2 class="section-title">📜 Quest Log — Completed Missions</h2></div>
+      <div id="quest-grid" class="quest-grid"></div>
+    </section>
+
+    <!-- SKILL TREE -->
+    <section id="skilltree" class="section">
+      <div class="text-center mb-12"><h2 class="section-title">🌳 Skill Tree</h2></div>
+      <div class="game-card p-6 scroll-x">
+        <div id="skill-tree-canvas" class="tree-canvas"></div>
+      </div>
+    </section>
+
+    <!-- INVENTORY -->
+    <section id="inventory" class="section">
+      <div class="text-center mb-12"><h2 class="section-title">🎒 Inventory — Equipped Items</h2></div>
+      <div id="inventory-grid" class="inventory-grid"></div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section id="journey" class="section section-narrow">
+      <div class="text-center mb-12"><h2 class="section-title">🗺️ Developer Journey</h2></div>
+      <div class="journey-wrap" data-observe="journey">
+        <div class="journey-line"></div>
+        <ol id="journey-list" class="journey-list"></ol>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="section">
+      <div class="text-center mb-12"><h2 class="section-title">🏆 Achievements Unlocked</h2></div>
+      <div id="achievements-grid" class="achievements-grid" data-observe="achievements"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-mid">
+      <div class="text-center mb-12"><h2 class="section-title">📨 Speak With The Elder</h2></div>
+      <div class="game-card p-6 glow-purple mb-6">
+        <div class="text-center mb-4">
+          <div class="ascii-frame">╔══════════════════════════╗</div>
+          <div class="elder-title">║       🧙 TOWN ELDER       ║</div>
+          <div class="ascii-frame">╚══════════════════════════╝</div>
+        </div>
+        <p class="elder-text">
+          "Ah, traveler... You seek a developer for your quest?"<br />
+          <span class="c-muted">"Speak your request, and I shall relay it."</span>
+        </p>
+      </div>
+      <form id="contact-form" class="game-card p-6 stack-lg">
+        <label class="field">
+          <span class="field-label">Your Name, Adventurer</span>
+          <input name="name" required class="field-input" />
+        </label>
+        <label class="field">
+          <span class="field-label">Your Scroll Address (Email)</span>
+          <input name="email" type="email" required class="field-input" />
+        </label>
+        <label class="field">
+          <span class="field-label">Describe Your Quest</span>
+          <textarea name="message" rows="5" required class="field-input"></textarea>
+        </label>
+        <button type="submit" class="btn-game gold w-full">⚔ Send Quest Request</button>
+      </form>
+      <footer class="site-footer">
+        <p>© DevQuest — Forged with ⚔ in Coimbatore</p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card game-card glow-blue flicker" id="modal-card">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- KONAMI OVERLAY -->
+  <div id="konami" class="konami hidden">
+    <div class="game-card glow-gold flicker konami-card">
+      <div class="konami-icon">🎮</div>
+      <h3 class="konami-title">ACHIEVEMENT UNLOCKED</h3>
+      <p class="konami-sub">Secret Explorer</p>
+      <p class="konami-xp">+50 XP</p>
+    </div>
+  </div>
+
+  <!-- CONFETTI -->
+  <div id="confetti" class="confetti hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
